@@ -94,18 +94,10 @@ function onGalleryItemClick(e) {
   if (target.nodeName !== 'IMG') return;
 
   const largeImageUrl = target.dataset.source;
-  updateModalImage(largeImageUrl);
-  openModal();
-}
+  console.log(largeImageUrl);
 
-function updateModalImage(imageUrl) {
-  const modalImage = document.querySelector('.basicLightbox img');
-  modalImage.src = imageUrl;
-}
-
-function openModal() {
   const instance = basicLightbox.create(`
-    <img src="largeImageUrl" width="800" height="600">
+    <img src="${largeImageUrl}" width="800" height="600">
   `);
 
   instance.show();
