@@ -1,5 +1,7 @@
 body {
-  max-width: 1440px;
+  width: 1440px;
+  height: 696px;
+  margin: 0;
 }
 .gallery {
   display: flex;
@@ -7,8 +9,8 @@ body {
   list-style: none;
   justify-content: center;
   gap: 24px;
-  margin: 0;
-  padding: 0;
+
+  padding: 0px;
 }
 .gallery-item {
 }

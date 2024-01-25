@@ -94,19 +94,19 @@ function onGalleryItemClick(e) {
   if (target.nodeName !== 'IMG') return;
 
   const largeImageUrl = target.dataset.source;
-  console.log(largeImageUrl);
 
-  const instance = basicLightbox.create(`
-    <img src="${largeImageUrl}" width="800" height="600">
-  `);
-
-  instance.show();
-}
-
-document.addEventListener('keydown', onKeyPress);
-
-function onKeyPress(e) {
-  if (e.code === 'Escape') {
-    basicLightbox.close();
+  const instance = basicLightbox.create(
+    `
+    <img src="${largeImageUrl}" width="1112" height="640">
+  `,
+    {
+      onShow: instance => {
+        window.addEventListener('keydown', closeModal);
+      },
+    },
+  );
+  function closeModal(e) {
+    if (e.code === 'Escape') instance.close();
   }
+  instance.show();
 }
