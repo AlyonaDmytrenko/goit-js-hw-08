@@ -94,6 +94,7 @@ function onGalleryItemClick(e) {
   if (target.nodeName !== 'IMG') return;
 
   const largeImageUrl = target.dataset.source;
+  console.log(largeImageUrl);
 
   const instance = basicLightbox.create(
     `
@@ -102,6 +103,10 @@ function onGalleryItemClick(e) {
     {
       onShow: instance => {
         window.addEventListener('keydown', closeModal);
+      },
+
+      onClose: instance => {
+        window.removeEventListener('keydown', closeModal);
       },
     },
   );
